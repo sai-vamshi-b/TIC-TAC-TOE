@@ -1,10 +1,10 @@
-import math
+# import math
 import random
 
 
 class Player:
-    def __init__(self, oorx):
-        self.oorx = oorx
+    def __init__(self, letters):
+        self.letters = letters
         # the chosen side or letter is either X or O
 
     def get_move(self, game):
@@ -12,8 +12,8 @@ class Player:
 
 
 class RandomComputerPlayer(Player):
-    def __init__(self, oorx):
-        super().__init__(oorx)
+    def __init__(self, letters):
+        super().__init__(letters)
 
     def get_move(self, game):
         # get a random valid spot for our next move
@@ -22,14 +22,14 @@ class RandomComputerPlayer(Player):
 
 
 class HumanPlayer(Player):
-    def __init__(self, oorx):
-        super().__init__(oorx)
+    def __init__(self, letters):
+        super().__init__(letters)
 
     def get_move(self, game):
         valid_square = False
         val = None
         while not valid_square:
-            square = input(self.oorx + '\'s turn. Input move from (0-9):')
+            square = input(self.letters + '\'s turn. Input move from (0-8):')
             # we're going to return invalid as answer either
             # if the value is not an integer or
             # if the range is out of board or spot is unavailable
